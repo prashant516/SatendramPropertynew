@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Bareilly Property Bazar</title>
+   
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Iconic Bootstrap 4.5.0 Admin Template">
+    <meta name="author" content="WrapTheme, design by: ThemeMakker.com">
+
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <!-- VENDOR CSS -->
+    <link rel="stylesheet" href="~/AdminAssets/assets/vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/AdminAssets/assets/vendor/font-awesome/css/font-awesome.min.css">
+
+    <!-- MAIN CSS -->
+    <link rel="stylesheet" href="~/AdminAssets/assets/css/main.css">
+    <link rel="stylesheet" href="~/AdminAssets/assets/vendor/bootstrap-datepicker/css/bootstrap-datepicker3.min.css">
+
+
+    <!-- MAIN CSS -->
+    <link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body data-theme="light" class="font-nunito">
+
+    <div id="wrapper" class="theme-cyan">
+            @RenderBody()
+        </div>
+       
+ 
+    <script src="~/AdminAssets/assets/bundles/libscripts.bundle.js"></script>
+    <script src="~/AdminAssets/assets/bundles/vendorscripts.bundle.js"></script>
+
+    <script src="~/AdminAssets/assets/vendor/dropify/js/dropify.min.js"></script>
+    <script src="~/AdminAssets/assets/vendor/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
+
+    <!-- page js file -->
+    <script src="~/AdminAssets/assets/bundles/mainscripts.bundle.js"></script>
+    <script src="~/AdminAssets/js/pages/forms/dropify.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

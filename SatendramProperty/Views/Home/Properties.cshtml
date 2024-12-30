@@ -1,0 +1,70 @@
+﻿<!-- Property Slider start -->
+<section class="property-slider-wrap pt-100 pb-75">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-6 offset-xl-3 col-lg-8 offset-lg-2">
+                <div class="section-title style1 text-center mb-40">
+                    <h2>Latest Properties Listing</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center" id="propertylist">
+        </div>
+    </div>
+</section>
+<!-- Property Slider end -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+
+    $(document).ready(function(){
+         debugger;
+                  $.ajax({
+                      url: '/Home/getproperty',  // The API endpoint you defined in your controller
+                      type: 'GET',
+                      success: function(data) {
+                         // var propertylist = $("#propertylist");
+                          //productList.empty();  // Clear existing list
+                               var propertyData='';
+                          var data = JSON.parse(data);
+
+                             for (i = 0; i < data.length; i++)
+                            {
+                              var image = data[i].media.split('~');
+
+                             propertyData += '<div class="col-xl-4 col-lg-6 col-md-6" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200">';
+                             propertyData += '<div class="property-card style3">';
+                             propertyData += '<div class="property-img">';
+                                 propertyData += '<img src="/propertyImages/'+image[0]+'" style="height: 237px;" alt="Image">';
+                             propertyData += '<span class="property-status">For Rent</span>';
+                             propertyData += '<span class="property-condo">New</span>';
+                             propertyData += '</div>';
+                             propertyData += '<div class="property-info">';
+                             propertyData += '<div class="property-status-wrap">';
+                             propertyData += '<span class="property-state"><i class="flaticon-home"></i>'+ data[i].propertyType +'</span>';
+                             propertyData += '<p class="property-price">Rs:'+ data[i].expectedPrice +'</p>';
+                             propertyData += '</div>';
+                             propertyData += '<h3><a href="listing-details.html">'+ data[i].description +'</a></h3>';
+                             propertyData += '<p><i class="flaticon-location"></i>'+ data[i].address +' '+ data[i].city +','+ data[i].state +','+ data[i].zipCode +'</p>';
+                             propertyData += '<ul class="property-metainfo list-style">';
+                             // propertyData += '<li><i class="flaticon-double-bed"></i>04</li>';
+                             // propertyData += '<li><i class="flaticon-bath-tub"></i>04</li>';
+                             propertyData += '<li><i class="flaticon-square"></i>'+ data[i].builtUpArea+' sqft</li>';
+                             propertyData += '</ul>';
+                             propertyData += '</div>';
+                             propertyData += '</div>';
+                             propertyData += '</div>';
+
+                          }
+                          $("#propertylist").append(propertyData);
+
+                      },
+                      error: function(error) {
+                          alert("Error fetching data.");
+                      }
+                  });
+
+          });
+
+</script>

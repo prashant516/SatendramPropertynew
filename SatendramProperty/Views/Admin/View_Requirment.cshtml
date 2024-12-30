@@ -1,0 +1,78 @@
+﻿@using System.Data;
+@model dynamic
+@{
+    ViewData["Title"] = "View Requirment";
+    Layout = "_AdminLayout";
+}
+<div class="container-fluid">
+    <div class="block-header">
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-12">
+                <h2>Requirment List</h2>
+                <ul class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/Admin/Index"><i class="fa fa-dashboard"></i></a></li>
+                    <li class="breadcrumb-item">Requirment</li>
+                    <li class="breadcrumb-item active">List</li>
+                </ul>
+            </div>
+            
+        </div>
+    </div>
+    </div>
+        <div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="body">
+                    <div class="row">
+                        @*  <div class="col-lg-6 col-md-12 col-sm-12">
+                        <div class="form-group">
+                        <div class="input-group">
+                        <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="icon-magnifier"></i></span>
+                        </div>
+                        <input type="text" class="form-control" placeholder="Search...">
+                        </div>
+                        </div>
+                        </div> *@
+
+                    </div>
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-hover mb-0">
+                        <thead>
+                            <tr>
+                                <th class="border-top-0">RequirmentID </th>
+                                <th class="border-top-0">PropertyStatus </th>
+                                <th class="border-top-0">PropertyType</th>
+                                <th class="border-top-0">Address</th>
+                                <th class="border-top-0">BuiltUpArea</th>
+                                <th class="border-top-0">PlotArea</th>
+                                <th class="border-top-0">ExpectedPrice</th>
+                                <th class="border-top-0">NoofBedrooms</th>
+                                <th class="border-top-0">NoofBathRooms</th>
+                                <th class="border-top-0">NoofBalconies</th>
+                                <th class="border-top-0">Description </th>
+                                <th class="border-top-0">CreatedOn</th>
+                                <th class="border-top-0">CreatedBy</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            @foreach (DataRow row in Model.Requirment.Rows)
+                            {
+                                <tr>
+                                    @foreach (var item in row.ItemArray)
+                                    {
+                                        <td>@item</td>
+                                    }
+                                </tr>
+
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

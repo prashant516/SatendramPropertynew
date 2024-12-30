@@ -1,0 +1,248 @@
+﻿@{
+    ViewData["Title"] = "Add Property";
+    Layout = "_AgentLayout";
+}
+
+
+<!-- Container-fluid start -->
+<div class="container-fluid">
+    <div class="block-header">
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-12">
+                <h2>Add Requirment</h2>
+                <ul class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index.html"><i class="fa fa-dashboard"></i></a></li>
+                    <li class="breadcrumb-item">Requirment</li>
+                    <li class="breadcrumb-item active">Add new</li>
+                </ul>
+            </div>
+         
+        </div>
+    </div>
+</div>
+<!-- Container-fluid end -->
+<!-- Container-fluid start -->
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-header pb-0">
+                    <h5 class="mt-4">Requirement Details</h5>
+                </div>
+                <div class="card-body admin-form">
+                    <div class="row gx-3">
+
+                        <div class="form-group col-sm-6">
+                            <label>Property For</label>
+                            <div class="dropdown">
+
+                                <select class="form-control" id="propertystatus">
+                                    <option>Select Status</option>
+                                    <option>For Rent</option>
+                                    <option>For Sale</option>
+
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group col-sm-6">
+                            <label>Property Type</label>
+                            <select class="form-control" id="propertytype" onchange="propertytypechange()">
+                                <option>Select Type</option>
+                                <option value="1">Flate/Apartment</option>
+                                <option value="2">House</option>
+                                <option value="3">Residential Plots/Lands</option>
+                            </select>
+                        </div>
+
+                        <div class="col-md-12">
+                            <div class="row">
+
+                                <div class="form-group col-sm-4" id="bupareadiv">
+                                    <label>Built Up  Area</label>
+                                    <input type="text" class="form-control" placeholder="Built Up  Area" id="builtuparea">
+                                </div>
+                                <div class="form-group col-sm-4" id="plotlanddiv">
+                                    <label>Plot/Land Area</label>
+                                    <input type="text" class="form-control" placeholder="Plot/Land Area" id="plotarea">
+                                </div>
+                                <div class="form-group col-sm-4" id="expecteddiv">
+                                    <label>Budget</label>
+                                    <input type="text" class="form-control" placeholder="Expected Price" id="expectedprice">
+                                </div>
+                               
+                                <div class="form-group col-sm-4" id="notofbeddiv">
+                                    <label>No of Bedrooms</label>
+                                    <div class="dropdown">
+                                        <select class="form-control" name="bedrooms_more" id="noofbedrooms">
+                                            <option value="">Select</option>
+                                            <option value="99">1 RK</option>
+                                            <option value="1">1 BHK</option>
+                                            <option value="1.5">1.5 BHK</option>
+                                            <option value="2">2 BHK</option>
+                                            <option value="2.5">2.5 BHK</option>
+                                            <option value="3">3 BHK</option>
+                                            <option value="3.5">3.5 BHK</option>
+                                            <option value="4">4 BHK</option>
+                                            <option value="4.5">4.5 BHK</option>
+                                            <option value="5">5 BHK</option>
+                                            <option value="6">6 BHK</option>
+                                            <option value="7">7 BHK</option>
+                                            <option value="8">8 BHK</option>
+                                            <option value="9">9 BHK</option>
+                                            <option value="10+">10+ BHK</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group col-sm-4" id="noofbathdiv">
+                                    <label>No of BathRooms</label>
+                                    <div class="dropdown">
+                                        <select class="form-control" name="bathrooms_more" id="noofbathrooms">
+                                            <option value="">Select</option>
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            <option value="5">5</option>
+                                            <option value="6">6</option>
+                                            <option value="7">7</option>
+                                            <option value="8">8</option>
+                                            <option value="9">9</option>
+                                            <option value="10">10</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group col-sm-4" id="noofbalcodiv">
+                                    <label>No of Balconies</label>
+                                    <div class="dropdown">
+                                        <select class="form-control" name="bathrooms_more" id="noofbalconies">
+                                            <option value="">Select</option>
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            <option value="5">5</option>
+                                            <option value="6">6</option>
+                                            <option value="7">7</option>
+                                            <option value="8">8</option>
+                                            <option value="9">9</option>
+                                            <option value="10">10</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group col-sm-6">
+                                    <label>* City / Location</label>
+                                    <input type="text" class="form-control" placeholder="Select City / Location" id="address">
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                  
+                    <div class="row gx-3">
+                        
+
+                        <div class="form-btn col-sm-12">
+                            <button type="button" class="btn btn-primary" onclick="AddProperty();">Submit</button>
+                            <button type="button" class="btn btn-default">Cancel</button>
+                        </div>
+
+                    </div>
+                </div>
+
+             
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Container-fluid end -->
+<script>
+    function propertytypechange() {
+        debugger;
+        var pvalue = $('#propertytype').val();
+
+        if (pvalue == 1) {
+          
+            $('#bupareadiv').show()
+         
+         
+            $('#notofbeddiv').show()
+            $('#noofbathdiv').show()
+            $('#noofbalcodiv').show()
+        }
+        else if (pvalue == 2) {
+               $('#bupareadiv').show()
+                   $('#notofbeddiv').show()
+            $('#noofbathdiv').show()
+            $('#noofbalcodiv').show()
+        }
+        else {
+           
+            $('#bupareadiv').hide()
+                $('#notofbeddiv').hide()
+            $('#noofbathdiv').hide()
+            $('#noofbalcodiv').hide()
+        }
+    }
+    function AddProperty() {
+        debugger;
+        // var PropertyStatus = $('#propertystatus').val();
+        // var PropertyType = $('#propertytype').val();
+        // var State = $('#state').val();
+        // var City = $('#city').val();
+        // var ZipCode = $('#zipCode').val();
+        // var Landmark = $('#landmark').val();
+        // var Address = $('#Aaddress').val();
+        // var SaleType = $('#saleType').val();
+        // var Ownership = $('#ownership').val();
+        // var NoofFloor = $('#noofFloor').val();
+        // var Availablity = $('#availablity ').val();
+        // var PropertyonFloor = $('#propertyonFloor').val();
+        // var BuiltUpArea = $('#builtUpArea').val();
+        // var PlotArea = $('#plotArea').val();
+        // var CarpetArea = $('#carpetArea').val();
+        // var SuperArea = $('#superArea').val();
+        // var ExpectedPrice = $('#expectedPrice').val();
+        // var BookingAmount = $('#bookingAmount').val();
+        // var MaenanceCharges = $('#maenanceCharges').val();
+        // var NoofBedrooms = $('#noofBedrooms').val();
+        // var NoofBathRooms = $('#noofBathRooms').val();
+        // var NoofBalconies = $('#noofBalconies').val();
+        // var Description = $('#description').val();
+
+        var propertyMaster = {
+            PropertyStatus: $('#propertystatus').val(),
+            PropertyType: $('#propertytype').val(),
+          
+            BuiltUpArea: $('#builtuparea').val(),
+            PlotArea: $('#plotarea').val(),
+       
+            ExpectedPrice: $('#expectedprice').val(),
+          
+            NoofBedrooms: $('#noofbedrooms').val(),
+            NoofBathRooms: $('#noofbathrooms').val(),
+            NoofBalconies: $('#noofbalconies').val(),
+            Address: $('#address').val(),
+        
+        }
+
+
+        $.ajax({
+            url: '/Agent/POSTRequirment',
+            type: 'POST',
+            contentType: 'application/json',
+            data: JSON.stringify(propertyMaster),
+            success: function (data) {
+                alert('Post added successfully!');
+
+            },
+            error: function (xhr, status, error) {
+                console.error('Error:', error);
+                alert('Failed to add Post.');
+            }
+        });
+
+    }
+</script>

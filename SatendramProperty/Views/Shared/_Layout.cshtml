@@ -1,0 +1,229 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - SatendramProperty</title>
+    <script type="importmap"></script>
+    <title>@ViewData["Title"] - SatendramProperties</title>
+    <!-- Link of CSS files -->
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/css/flaticon.css">
+    <link rel="stylesheet" href="/assets/css/remixicon.css">
+    <link rel="stylesheet" href="/assets/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="/assets/css/jquery-ui-min.css">
+    <link rel="stylesheet" href="/assets/css/odometer.min.css">
+    <link rel="stylesheet" href="/assets/css/aos.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/responsive.css">
+    <link rel="stylesheet" href="/assets/css/dark-theme.css">
+
+
+
+    <link rel="icon" type="image/png" href="assets/img/favicon.png">
+</head>
+<body>
+    <!--Preloader starts-->
+    <div class="loader js-preloader">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+    <!--Preloader ends-->
+    <!-- Theme Switcher Start -->
+    <div class="switch-theme-mode">
+        <label id="switch" class="switch">
+            <input type="checkbox" onchange="toggleTheme()" id="slider">
+            <span class="slider round"></span>
+        </label>
+    </div>
+    <!-- Theme Switcher End -->
+    <div class="page-wrapper">
+
+        <!-- Header Section Start -->
+        <header class="header-wrap">
+            <div class="container">
+                <nav class="navbar navbar-expand-md navbar-light">
+                    <a class="navbar-brand" href="/">
+                        <img class="logo-light" src="/assets/img/logo.png" alt="logo">
+                        <img class="logo-dark" src="/assets/img/logo-white.png" alt="logo">
+                    </a>
+                    <div class="collapse navbar-collapse main-menu-wrap" id="navbarSupportedContent">
+                        <div class="menu-close d-lg-none">
+                            <a href="javascript:void(0)"> <i class="ri-close-line"></i></a>
+                        </div>
+                        <ul class="navbar-nav ms-auto" style="margin-right: 171px;">
+                            <li class="nav-item">
+                                <a href="/" class="nav-link">
+                                    Home
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/Home/Properties" class="nav-link">Properties</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/Home/About" class="nav-link">
+                                    About Us
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a href="/Home/contact" class="nav-link">Contact Us</a>
+                            </li>
+
+                        </ul>
+
+                    </div>
+                </nav>
+                <div class="mobile-bar-wrap">
+                    <div class="mobile-menu d-lg-none">
+                        <a href="javascript:void(0)"><i class="ri-menu-line"></i></a>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Header Section End -->
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+        <footer class="footer-wrap style2 pt-100">
+            <img src="/assets/img/footer-map.png" alt="Image" class="footer-shape-one">
+            <div class="footer-top">
+                <div class="container">
+                    <div class="row pb-75">
+                        <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 pe-xl-5">
+                            <div class="footer-widget">
+                                <a href="index.html" class="footer-logo">
+                                    <img src="/assets/img/logo-white.png" alt="Image">
+                                </a>
+                                <p class="comp-desc">
+                                    we are passionate about helping you find the perfect place to call home or the ideal property for your investment goals. With years of experience in the real estate market..
+                                </p>
+
+                            </div>
+                        </div>
+
+                        <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 ps-xl-5">
+                            <div class="footer-widget">
+                                <h3 class="footer-widget-title">Quick Links</h3>
+                                <ul class="footer-menu list-style">
+                                    <li>
+                                        <a href="about.html" target="_blank">
+                                            <i class="ri-arrow-right-s-line"></i>
+                                            About Us
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="agents.html" target="_blank">
+                                            <i class="ri-arrow-right-s-line"></i>
+                                            Agents
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="contact.html" target="_blank">
+                                            <i class="ri-arrow-right-s-line"></i>
+                                            Contact Us
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="privacy-policy.html" target="_blank">
+                                            <i class="ri-arrow-right-s-line"></i>
+                                            Privacy Policy
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="terms-of-service.html" target="_blank">
+                                            <i class="ri-arrow-right-s-line"></i>
+                                            Terms &amp; Conditions
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6">
+                            <div class="footer-widget">
+                                <div class="comp-map">
+                                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.8385385572983!2d144.95358331584498!3d-37.81725074201705!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad65d4dd5a05d97%3A0x3e64f855a564844d!2s121%20King%20St%2C%20Melbourne%20VIC%203000%2C%20Australia!5e0!3m2!1sen!2sbd!4v1612419490850!5m2!1sen!2sbd">
+                                    </iframe>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="footer-bottom">
+                    <div class="row align-items-center">
+                        <div class="col-md-6">
+                            <p class="copyright-text">
+                                Copyright ©2024 All Rights Reserved
+                            </p>
+                        </div>
+                        <div class="col-md-6">
+                            <ul class="social-profile list-style style1">
+                                <li>
+                                    <a target="_blank" href="https://facebook.com">
+                                        <i class="ri-facebook-fill"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a target="_blank" href="https://twitter.com">
+                                        <i class="ri-twitter-fill"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a target="_blank" href="https://instagram.com">
+                                        <i class="ri-instagram-line"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a target="_blank" href="https://linkedin.com">
+                                        <i class="ri-linkedin-fill"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+
+              @*   <div class="d-none d-lg-block">
+                    <ul class="navbar-nav flex-row justify-content-lg-end d-flex flex-wrap text-body py-2">
+
+                        <li class="nav-item">
+                            <a class="nav-link  px-2" data-toggle="modal" href="#login-register-modal">SIGN IN</a>
+                        </li>
+
+                    </ul>
+                </div> *@
+
+
+            </div>
+        </footer>
+        <!-- Footer Section End -->
+
+    </div>
+    <!-- Page Wrapper End -->
+    <!-- Back-to-top button Start -->
+    <a href="javascript:void(0)" class="back-to-top bounce"><i class="ri-arrow-up-s-line"></i></a>
+    <!-- Back-to-top button End -->
+
+
+    <!-- Link of JS files -->
+
+    <script src="/assets/js/jquery.min.js"></script>
+    <script src="/assets/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/js/form-validator.min.js"></script>
+    <script src="/assets/js/contact-form-script.js"></script>
+    <script src="/assets/js/aos.js"></script>
+    <script src="/assets/js/owl.carousel.min.js"></script>
+    <script src="/assets/js/jquery-ui-min.js"></script>
+    <script src="/assets/js/jquery.appear.js"></script>
+    <script src="/assets/js/odometer.min.js"></script>
+    <script src="/assets/js/fslightbox.js"></script>
+    <script src="/assets/js/tweenmax.min.js"></script>
+    <script src="/assets/js/main.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,111 @@
+﻿@{
+    ViewData["Title"] = "Agent Dashbord";
+    Layout = "_NewLayout";
+}
+<div class="vertical-align-wrap">
+    <div class="vertical-align-middle auth-main">
+        <div class="auth-box">
+            <div class="top">
+                <img src="~/AdminAssets/assets/images/logo-white.svg" alt="Iconic">
+            </div>
+            <div class="card" style="width:800px">
+                <div class="header">
+                    <p class="lead">Create an account</p>
+                </div>
+                <div class="body">
+                    <div class="form-auth-small row">
+                        <div class="form-group col-md-4">
+                            <label for="signup-email" class="control-label sr-only">User Type</label>
+                            <select class="form-control" id="RoleID">
+                                <option>Select Type</option>
+                                <option value="1">Buyer/Owner/Tenant</option>
+                                <option value="2">Agent</option>
+                                <option value="3">Builder</option>
+                                <option value="4">Other</option>
+
+                            </select>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="signup-email" class="control-label sr-only">Username</label>
+                            <input type="text" class="form-control" id="username" placeholder="Username">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="signup-email" class="control-label sr-only">Phone</label>
+                            <input type="text" class="form-control" id="phone" placeholder="Phone">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="signup-email" class="control-label sr-only">Email</label>
+                            <input type="email" class="form-control" id="email" placeholder="Email">
+                        </div>
+                      
+                        <div class="form-group col-md-4">
+                            <label class="control-label sr-only">Date of birth </label>
+                            <input type="date" id="dob" class="form-control" placeholder="Date of Birth">
+
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label class="control-label sr-only">Gender </label>
+                            <select class="form-control" id="gender">
+                                <option>Select Gender</option>
+                                <option value="M">Male</option>
+                                <option value="F">Female</option>
+
+                            </select>
+                        </div>
+                      
+                        <div class="form-group col-md-4">
+                            <label for="signup-password" class="control-label sr-only">Password</label>
+                            <input type="password" class="form-control" id="password" placeholder="Password">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="signup-email" class="control-label sr-only">Address</label>
+                            <input type="email" class="form-control" id="address" placeholder="Address">
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-lg btn-block" onclick="AddUser();">REGISTER</button>
+                        <div class="bottom">
+                            <span class="helper-text">Already have an account? <a href="/Login/Login">Login</a></span>
+                        </div>
+                    </div>
+                   
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+
+    function AddUser() {
+    
+
+        var userMaster = {
+            UserName: $('#username').val(),
+            Gender: $('#gender').val(),
+            Phone: $('#phone').val(),
+            DOB: $('#dob').val(),
+            Email: $('#email').val(),
+            Password: $('#password').val(),
+            Address: $('#address').val(),
+            Profileimage:"",
+            RoleID: $('#RoleID').val(),
+
+        }
+
+        $.ajax({
+            url: '/Login/AddUser',
+            type: 'POST',
+            contentType: 'application/json',
+            data: JSON.stringify(userMaster),
+            success: function (data) {
+                window.location.href = '@Url.Action("Login", "Login")';
+
+            },
+            error: function (xhr, status, error) {
+                console.error('Error:', error);
+                alert('Failed to add Post.');
+            }
+        });
+    }
+</script>

@@ -1,0 +1,469 @@
+﻿@{
+    ViewData["Title"] = "Add Property";
+    Layout = "_AdminLayout";
+}
+
+
+<!-- Container-fluid start -->
+<div class="container-fluid">
+    <div class="block-header">
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-12">
+                <h2>Add Property</h2>
+                <ul class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index.html"><i class="fa fa-dashboard"></i></a></li>
+                    <li class="breadcrumb-item">propertys</li>
+                    <li class="breadcrumb-item active">Add new</li>
+                </ul>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12">
+                <div class="d-flex flex-row-reverse">
+                    <div class="page_action">
+                        <button type="button" class="btn btn-primary"><i class="fa fa-download"></i> Download report</button>
+                        <button type="button" class="btn btn-secondary"><i class="fa fa-send"></i> Send report</button>
+                    </div>
+                    <div class="p-2 d-flex">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Container-fluid end -->
+<!-- Container-fluid start -->
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-header pb-0">
+                    <h5 class="mt-4">Property info & Location</h5>
+                </div>
+                <div class="card-body admin-form">
+                    <div class="row gx-3">
+                      
+                        <div class="form-group col-sm-6">
+                            <label>Property For</label>
+                            <div class="dropdown">
+                                
+                                <select class="form-control" id="propertystatus">
+                                    <option>Select Status</option>
+                                    <option>For Rent</option>
+                                    <option>For Sale</option>
+                            
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group col-sm-6">
+                            <label>Property Type</label>
+                            <select class="form-control" id="propertytype" onchange="propertytypechange()">
+                                <option>Select Type</option>
+                                <option value="1">Flate/Apartment</option>
+                                <option value="2">House</option>
+                                <option value="3">Residential Plots/Lands</option>
+                            </select>
+                        </div>
+                       
+                        <div class="form-group col-sm-4">
+                            <label>State</label>
+                            <select class="form-control" id="state">
+                                <option>Select Sale State</option>
+                                <option value="1">Uttar Pradesh</option>
+                                <option value="2">Uttrakhand</option>
+
+                            </select>
+                        </div>
+                        <div class="form-group col-sm-4">
+                            <label>City</label>
+                            <select class="form-control" id="city">
+                                <option>Select City</option>
+                                <option value="1">Bareilly</option>
+                                <option value="2">Nanital</option>
+
+                            </select>
+                        </div>
+                      
+                        <div class="form-group col-sm-4">
+                            <label>Zip code</label>
+                            <input type="text" class="form-control" placeholder="39702" id="ZipCode">
+                        </div>
+                        <div class="form-group col-sm-4">
+                            <label>Landmark</label>
+                            <input type="text" class="form-control" placeholder="landmark place name" id="landmark">
+                        </div>
+                        <div class="form-group col-sm-6">
+                            <label>Address</label>
+                            <input type="text" class="form-control" placeholder="Address of your property" id="address">
+                        </div>
+                        
+                            <h5 class="mt-4">Transction Type,Property Availabilty</h5>
+                            <div class="col-md-12">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-line">
+                                    <label>Sale Type</label>
+
+                                    <select class="form-control" id="saletype">
+                                        <option>Select Sale Type</option>
+                                        <option>Resale Property</option>
+                                        <option>New Property</option>
+
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-4" id="ownershipdiv">
+                                <div class="form-line">
+                                    <label>Ownership</label>
+
+                                    <select class="form-control" name="prop_member_type" id="ownership">
+                                        <option value="">Select</option>
+                                        <option value="1">Individual</option>
+                                        <option value="2">others</option>
+                                        <option value="3">A Broker/Agent</option>
+                                        <option value="4">A Builder/Promoter</option>
+                                    </select>
+                                    </div>
+                                  </div>
+                            <div class="col-md-4" id="nooffdiv">
+                                <div class="form-line">
+                                    <label>Number Of Floor</label>
+
+                                    <select class="form-control" name="totalfloor" id="NoofFloor">
+                                        <option value="">Select</option>
+                                        <option value="1"> 1 </option>
+                                        <option value="2"> 2 </option>
+                                        <option value="3"> 3 </option>
+                                        <option value="4"> 4 </option>
+                                        <option value="5"> 5 </option>
+                                        <option value="6"> 6 </option>
+                                        <option value="7"> 7 </option>
+                                        <option value="8"> 8 </option>
+                                        <option value="9"> 9 </option>
+                                        <option value="10"> 10 </option>
+
+                                    </select>
+                                    </div>
+                                  </div>
+                            <div class="col-md-4" id="availabiltydiv">
+                                <div class="form-line">
+                                    <label>Availablity</label>
+
+                                    <select class="form-control" name="property_availability" id="availability">
+                                        <option value="">Select</option>
+                                        <option value="1">Under Construction</option>
+                                        <option value="2">Ready to Move</option>
+                                        <option value="3">Upcoming</option>
+                                    </select>
+                                    </div>
+                                  </div>
+                            <div class="col-md-4" id="ponfloordiv">
+                                <div class="form-line">
+                                    <label>Property on the Floor</label>
+
+                                    <select class="form-control" name="floor" id="propertyonfloor">
+                                        <option value="">Select</option>
+                                        <option value="900">Basement</option>
+                                        <option value="901">Ground</option>
+                                        <option value="1">1st</option>
+                                        <option value="2">2nd</option>
+                                        <option value="3">3rd</option>
+                                        <option value="4">4th</option>
+                                        <option value="5">5th</option>
+                                        <option value="6">6th</option>
+                                        <option value="7">7th</option>
+                                        <option value="8">8th</option>
+                                        <option value="9">9th</option>
+                                        <option value="10">10th</option>
+                                        <option value="11">11th</option>
+                                        <option value="12">12th</option>
+                                        <option value="13">13th</option>
+                                        <option value="14">14th</option>
+                                        <option value="15">15th</option>
+                                        <option value="16">16th</option>
+                                        <option value="17">17th</option>
+                                        <option value="18">18th</option>
+                                        <option value="19">19th</option>
+                                        <option value="20">20th</option>
+                                        <option value="21">21st</option>
+                                        <option value="22">22nd</option>
+
+                                    </select>
+                                    </div>
+                                  </div>
+
+
+                            </div>
+                        </div>
+                    <h5 class="mt-4">Property Feature & Price</h5>
+                      
+                        <div class="col-md-12"> 
+                        <div class="row">
+                        
+                        <div class="form-group col-sm-4" id="bupareadiv">
+                            <label>Built Up  Area</label>
+                            <input type="text" class="form-control" placeholder="Built Up  Area"  id="builtuparea">
+                        </div>
+                        <div class="form-group col-sm-4" id="plotlanddiv">
+                            <label>Plot/Land Area</label>
+                            <input type="text" class="form-control" placeholder="Built Up  Area"  id="plotarea">
+                        </div>
+                        <div class="form-group col-sm-4" id="carpetdiv">
+                            <label>Carpet Area</label>
+                            <input type="text" class="form-control" placeholder="Carpet Area"  id="carpetarea">
+                        </div>
+                        <div class="form-group col-sm-4" id="superareadiv">
+                            <label>Super Area</label>
+                            <input type="text" class="form-control" placeholder="Super Area"  id="superarea">
+                        </div>
+                        <div class="form-group col-sm-4" id="expecteddiv">
+                            <label>Expected Price</label>
+                            <input type="text" class="form-control" placeholder="Expected Price" id="expectedprice">
+                        </div>
+                        <div class="form-group col-sm-4" id="bookingdiv">
+                            <label>Booking Amount</label>
+                            <input type="text" class="form-control" placeholder="Booking Amount"  id="bookingamount">
+                        </div>
+                        <div class="form-group col-sm-4 " id=maintenancediv>
+                            <label>Maintenance Charges</label>
+                            <input type="text" class="form-control" placeholder="Maintenance Amount" id="maintenancecharges">
+                        </div>
+                        <div class="form-group col-sm-4" id="notofbeddiv" >
+                            <label>No of Bedrooms</label>
+                            <div class="dropdown">
+                                <select class="form-control" name="bedrooms_more" id="noofbedrooms">
+                                    <option value="">Select</option>
+                                    <option value="99">1 RK</option>
+                                    <option value="1">1 BHK</option>
+                                    <option value="1.5">1.5 BHK</option>
+                                    <option value="2">2 BHK</option>
+                                    <option value="2.5">2.5 BHK</option>
+                                    <option value="3">3 BHK</option>
+                                    <option value="3.5">3.5 BHK</option>
+                                    <option value="4">4 BHK</option>
+                                    <option value="4.5">4.5 BHK</option>
+                                    <option value="5">5 BHK</option>
+                                    <option value="6">6 BHK</option>
+                                    <option value="7">7 BHK</option>
+                                    <option value="8">8 BHK</option>
+                                    <option value="9">9 BHK</option>
+                                    <option value="10+">10+ BHK</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group col-sm-4" id="noofbathdiv">
+                            <label>No of BathRooms</label>
+                            <div class="dropdown">
+                                <select class="form-control" name="bathrooms_more" id="noofbathrooms">
+                                    <option value="">Select</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-sm-4" id="noofbalcodiv">
+                            <label>No of Balconies</label>
+                            <div class="dropdown">
+                                <select class="form-control" name="bathrooms_more" id="noofbalconies">
+                                <option value="">Select</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                            </select>
+                            </div>
+                        </div>
+                            </div>
+                        </div>
+                      
+                        <div class="form-group col-sm-12">
+                            <label>Description</label>
+                            <textarea class="form-control" id="description" rows="4" ></textarea>
+                        </div>
+        
+                    </div>
+                    <div class="dropzone-admin">
+                        <label>Media</label>
+                      
+                        <div class="col-sm-12">
+                       
+                            <input type="file" id="Images" class="dropify" name="files" multiple />
+                            <textarea id="base64Output" rows="10" cols="50" style="display:none" placeholder="Base64 output here..."></textarea>
+
+                        </div>
+                    </div>
+                    <div class="row gx-3">
+                        <div class="form-group col-sm-12">
+                            <label>video (mp4)</label>
+                            <input type="text" class="form-control" placeholder="mp4 video link" id="VideoURl">
+                        </div>
+                       
+                        <div class="form-btn col-sm-12">
+                            <button type="button" class="btn btn-primary"  onclick="AddProperty();">Submit</button>
+                            <button type="button" class="btn btn-default">Cancel</button>
+                        </div>
+                     
+                    </div>
+                </div>
+
+                
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Container-fluid end -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    function propertytypechange()
+    {
+        debugger;
+        var pvalue = $('#propertytype').val();
+
+        if (pvalue == 1) {
+            $('#nooffdiv').show()
+            $('#availabiltydiv').show()
+            $('#ponfloordiv').show()
+            $('#bupareadiv').show()
+            $('#carpetdiv').show()
+            $('#superareadiv').show()
+            $('#maintenancediv').show()
+            $('#notofbeddiv').show()
+            $('#noofbathdiv').show()
+            $('#noofbalcodiv').show()
+        }
+        else if (pvalue==2)
+        {
+            $('#nooffdiv').show()
+            $('#availabiltydiv').show()
+            $('#ponfloordiv').show()
+            $('#bupareadiv').show()
+            $('#carpetdiv').show()
+            $('#superareadiv').show()
+            $('#maintenancediv').show()
+            $('#notofbeddiv').show()
+            $('#noofbathdiv').show()
+            $('#noofbalcodiv').show()
+        }
+        else
+        {
+             $('#nooffdiv').hide()
+            $('#availabiltydiv').hide()
+            $('#ponfloordiv').hide()
+            $('#bupareadiv').hide()
+            $('#carpetdiv').hide()
+            $('#superareadiv').hide()
+            $('#maintenancediv').hide()
+            $('#notofbeddiv').hide()
+            $('#noofbathdiv').hide()
+            $('#noofbalcodiv').hide()
+        }
+    }
+    var Imgaes = [];
+    $(document).ready(function () {
+        $('#Images').on('change', function (event) {
+            var files = $('#Images')[0].files; // Get the selected file
+            var base64Strings = [];
+            for (var i = 0; i < files.length; i++) {
+                (function (file) {
+                    var reader = new FileReader(); // Create a FileReader object
+
+                    reader.onload = function (e) {
+                        var base64String = e.target.result; // Get the Base64 string
+                        base64Strings.push(base64String); // Add to the array
+
+                        $('#base64Output').val(base64Strings.join("\n")); // Join with new line for display
+                    };
+
+                    reader.readAsDataURL(file);
+                })(files[i]); // Use an IIFE to preserve the file context
+            }
+
+        });
+    });
+    function AddProperty() {
+        debugger;
+        // var PropertyStatus = $('#propertystatus').val();
+        // var PropertyType = $('#propertytype').val();
+        // var State = $('#state').val();
+        // var City = $('#city').val();
+        // var ZipCode = $('#zipCode').val();
+        // var Landmark = $('#landmark').val();
+        // var Address = $('#Aaddress').val();
+        // var SaleType = $('#saleType').val();
+        // var Ownership = $('#ownership').val();
+        // var NoofFloor = $('#noofFloor').val();
+        // var Availablity = $('#availablity ').val();
+        // var PropertyonFloor = $('#propertyonFloor').val();
+        // var BuiltUpArea = $('#builtUpArea').val();
+        // var PlotArea = $('#plotArea').val();
+        // var CarpetArea = $('#carpetArea').val();
+        // var SuperArea = $('#superArea').val();
+        // var ExpectedPrice = $('#expectedPrice').val();
+        // var BookingAmount = $('#bookingAmount').val();
+        // var MaenanceCharges = $('#maenanceCharges').val();
+        // var NoofBedrooms = $('#noofBedrooms').val();
+        // var NoofBathRooms = $('#noofBathRooms').val();
+        // var NoofBalconies = $('#noofBalconies').val();
+        // var Description = $('#description').val();
+        var filesData = document.getElementById('Images'); //$('#Images')[0].files;
+        var files = $('#Images')[0].files;
+        var outputText = '';
+        var propertyMaster = {
+            PropertyStatus: $('#propertystatus').val(),
+            PropertyType: $('#propertytype').val(),
+            State: $('#state').val(),
+            City: $('#city').val(),
+            ZipCode: $('#ZipCode').val(),
+            Landmark: $('#landmark').val(),
+            Address: $('#address').val(),
+            SaleType: $('#saletype').val(),
+            Ownership: $('#ownership').val(),
+            NoofFloor: $('#NoofFloor').val(),
+            Availablity: $('#availability ').val(),
+            PropertyonFloor: $('#propertyonfloor').val(),
+            BuiltUpArea: $('#builtuparea').val(),
+            PlotArea: $('#plotarea').val(),
+            CarpetArea: $('#carpetarea').val(),
+            SuperArea: $('#superarea').val(),
+            ExpectedPrice: $('#expectedprice').val(),
+            BookingAmount: $('#bookingamount').val(),
+            MaintenanceCharges: $('#maintenancecharges').val(),
+            NoofBedrooms: $('#noofbedrooms').val(),
+            NoofBathRooms: $('#noofbathrooms').val(),
+            NoofBalconies: $('#noofbalconies').val(),
+            Description: $('#description').val(),
+            PropertyMedia: $('#base64Output').val()
+        }
+
+
+        $.ajax({
+            url: '/Admin/POSTProperty',
+            type: 'POST',
+            contentType: 'application/json',
+            data: JSON.stringify(propertyMaster),
+            success: function (data) {
+                alert('Post added successfully!');
+
+            },
+            error: function (xhr, status, error) {
+                console.error('Error:', error);
+                alert('Failed to add Post.');
+            }
+        });
+
+    }
+ 
+</script>

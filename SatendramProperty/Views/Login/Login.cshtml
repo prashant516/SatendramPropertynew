@@ -1,0 +1,92 @@
+﻿@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor IHttpContextAccessor
+@{
+    ViewData["Title"] = "Agent Dashbord";
+    Layout = "_NewLayout";
+}
+<input type="hidden" id="rolename" value="@IHttpContextAccessor.HttpContext.Session.GetString("RoleName")" />
+<div class="vertical-align-wrap">
+    <div class="vertical-align-middle auth-main">
+        <div class="auth-box">
+            <div class="top">
+                <img src="~/AdminAssets/assets/images/logo-white.svg" alt="Iconic">
+            </div>
+            <div class="card">
+                <div class="header">
+                    <p class="lead">Login to your account</p>
+                </div>
+                <div class="body">
+                    <div class="form-auth-small" action="index.html">
+                        <div class="form-group">
+                            <label for="signin-email" class="control-label sr-only">Email</label>
+                            <input type="email" class="form-control" id="email" value="user@domain.com" placeholder="Email">
+                        </div>
+                        <div class="form-group">
+                            <label for="signin-password" class="control-label sr-only">Password</label>
+                            <input type="password" class="form-control" id="password" value="thisisthepassword" placeholder="Password">
+                        </div>
+                        <div class="form-group clearfix">
+                            <label class="fancy-checkbox element-left">
+                                <input type="checkbox">
+                                <span>Remember me</span>
+                            </label>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-lg btn-block" onclick="LoginUser()">LOGIN</button>
+                        <div class="bottom">
+                            <span class="helper-text m-b-10"><i class="fa fa-lock"></i> <a href="/Login/ForgotPassword">Forgot password?</a></span>
+                            <span>Don't have an account? <a href="/Login/Register">Register</a></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  
+</div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    function LoginUser() { 
+        debugger;
+        var admin = {
+            Email: $('#email').val(),
+            Password: $('#password').val(),        
+
+        }
+
+        $.ajax({
+            url: '/Login/LoginUser',
+            type: 'POST',
+            contentType: 'application/json',
+            data: JSON.stringify(admin),
+            success: function (data) {
+                if (data.status == true ) {
+                    var user = data[0].roleName;
+                    if (user == "Agent") {
+                        window.location.href = '@Url.Action("Index", "Agent")';
+                    }
+                    else if (user == "Other") {
+                        window.location.href = '@Url.Action("Index", "Admin")';
+                    }
+                    else {
+                         window.location.href = '@Url.Action("Index", "Home")';
+                    }
+
+                   
+                }
+                else
+                {
+                    alert('UserName and Password not Match.');
+
+                }
+
+               
+
+            },
+            error: function (xhr, status, error) {
+                console.error('Error:', error);
+                alert('Failed to add Post.');
+            }
+        });
+    
+    }
+</script>
